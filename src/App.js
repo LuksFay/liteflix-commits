@@ -23,14 +23,15 @@ function App() {
     <>
       <Navbar/>
       <Home/>
-      <select onChange={handleOnChange}>
-        <option>POPULARES</option>
-        <option>MIS PELICULAS</option>
-      </select>
-      
-      {populares && <Column title ="POPULARES" fetchUrl={request.populares}/>}
-      {misPeliculas && <Column title ="Mis Peliculas" fetchUrl={request.misPeliculas}/>}
-
+      <div className='movie_list'>
+        <select onChange={handleOnChange}>
+          <option>POPULARES</option>
+          <option>MIS PELICULAS</option>
+        </select>
+        
+        {populares && <Column title ="POPULARES" fetchUrl={request.populares}/>}
+        {misPeliculas && <Column title ="Mis Peliculas" fetchUrl={request.misPeliculas}/>}
+      </div>
     </>
   );
 }

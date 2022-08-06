@@ -23,7 +23,7 @@ const Column = ({title, fetchUrl}) => {
                 <img
                   key={movie.id}
                   className='column_poster'
-                  src={`${base_url}${movie.poster_path}`}
+                  src={`${base_url}${movie.backdrop_path}`}
                   alt={movie.title}
                   />    
             )}

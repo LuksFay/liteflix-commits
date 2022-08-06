@@ -2,7 +2,7 @@ const API_KEY = "6f26fd536dd6192ec8a57e94141f8b20";
 
 //Endpoints
 const request = {
-    peliculaDestacada: `/movie/now_playing?api_key=${API_KEY}` ,
+    peliculaDestacada: `/movie/popular?api_key=${API_KEY}` ,
     populares:`/movie/popular?api_key=${API_KEY}`,
     misPeliculas: `/discover/movie?api_key=${API_KEY}&with_genres=35`
 }

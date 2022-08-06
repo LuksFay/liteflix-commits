@@ -1,3 +1,6 @@
+.column{
+  margin-left: 20px;
+}
 .column_poster{
     object-fit: scale-down;
     width: 262.97px;
