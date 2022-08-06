@@ -20,7 +20,12 @@ const Column = ({title, fetchUrl}) => {
 
         <div className="column_posters">
             {movies.map(movie =>
-                <img className='column_poster' src={`${base_url}${movie.poster_path}`} alt={movie.title} key={movie.title}/>    
+                <img
+                  key={movie.id}
+                  className='column_poster'
+                  src={`${base_url}${movie.poster_path}`}
+                  alt={movie.title}
+                  />    
             )}
         </div>
     </div>

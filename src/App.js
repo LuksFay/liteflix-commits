@@ -22,6 +22,7 @@ function App() {
   return (
     <>
       <Navbar/>
+      <Home/>
       <select onChange={handleOnChange}>
         <option>POPULARES</option>
         <option>MIS PELICULAS</option>
@@ -29,7 +30,7 @@ function App() {
       
       {populares && <Column title ="POPULARES" fetchUrl={request.populares}/>}
       {misPeliculas && <Column title ="Mis Peliculas" fetchUrl={request.misPeliculas}/>}
-      <Home/>
+
     </>
   );
 }
