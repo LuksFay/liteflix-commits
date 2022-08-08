@@ -16,16 +16,18 @@ const Column = ({title, fetchUrl}) => {
     },[fetchUrl]);
     return (
     <div className='column'>
-        <h2>{title}</h2>
 
         <div className="column_posters">
             {movies.map((movie) =>(
-                <div className='poster_container' key={movie.id}> 
-                <img
-                    className='column_poster'
-                    src={`${base_url}${movie.backdrop_path}`}
-                    alt={movie.title}
-                /> 
+                <div className='poster_container' key={movie.id}>
+                    <div className='column_poster_info'>
+                        <p className='column_poster_name'>{movie.title}</p>
+                    </div> 
+                    <img
+                        className='column_poster'
+                        src={`${base_url}${movie.backdrop_path}`}
+                        alt={movie.title}
+                    /> 
                     <div className='poster--fadeBottom' />  
                 </div>
             ))}

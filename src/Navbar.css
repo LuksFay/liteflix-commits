@@ -1,16 +1,17 @@
+/*NAVBAR GENERAL*/
+
 .nav{
-    position: fixed;
     top: 0;
+    position: fixed;
+    display: flex;
     width: 100%;
     padding: 20px;
-    display: flex;
     overflow: hidden;
     justify-content: space-between;
     z-index: 5;
-    /*animations*/
+    /*ANIMATIONS*/
     transition-timing-function: ease-in;
     transition: all 0.5s;
-
     --state-close: scale(0);
     --state-hamburguer: scale(1);
     --state-menu: translate(-100%);
@@ -23,6 +24,8 @@
 .nav_black{
     background-color: #111;
 }
+
+/*NAVBAR CONTAINERS*/
 .nav_left_container{
     display: flex;
     margin-left: 120px;
@@ -32,7 +35,7 @@
     object-fit: contain;
     margin-right: 120px;
     align-items: center;
-    gap: 5px;
+    gap: 40px;
 }
 .nav_menu_container{
     display: grid;
@@ -41,6 +44,20 @@
     grid-template-columns: repeat(3, max-content);
     
 }
+
+/*NAVBAR LOGO*/
+.nav_logo_light{
+    font-weight: 200;
+}
+.nav_logo_bold{
+    font-size: 34px;
+    font-weight: 400;
+    color: #64EEBC;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+/*NAVBAR MENU*/
 .nav_hamburguer{
     transform: var(--state-hamburguer);
 }
@@ -50,23 +67,22 @@
 }
 .nav_hamburguer,
 .nav_close{
-    cursor: pointer;
     grid-column: -1/-1;
     grid-row: 1/1;
+    cursor: pointer;
     transition: .2s transform;
 }
-
 .nav_links{
-    background-color: #111;
-    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    position: fixed;
     display: grid;
-    align-content: center;
-    gap: 2em;
     padding-left: 5%;
+    align-content: center;
+    background-color: #fff;
+    gap: 2em;
     
 
     transform: var(--state-menu);
@@ -74,18 +90,31 @@
 }
 .nav_item{
     list-style: none;
-    color: #fff;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
+    font-size: 22px;
+    color: #111;
+    letter-spacing: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 200;
 }
+.nav_item:hover{
+    color: #64EEBC;
+}
+.agregar{
+    margin: 72px 0;
+    font-weight: 400;
+}
+
+
+/*NAVBAR BUTTONS*/
 .nav_button{
     width: 248px;
     height: 56px;
-    cursor: pointer;
-    background-color: transparent;
     font-size: 18px;
-    border: none;
     color: #fff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
     transition: all 0.2s;
     text-transform: uppercase;
 }
@@ -94,22 +123,16 @@
     transition: all 0.2s;
 }
 
+
+/*NAVBAR ICONS*/
 .icon_size{
     width: 2rem;
 }
-
-.nav_logo_bold{
-    color: #64EEBC;
-    font-size: 34px;
-    text-transform: uppercase;
-    font-weight: 400;
-    letter-spacing: 4px;
-}
-.nav_logo_light{
-    font-weight: 200;
-}
 .nav_notification{
     z-index: 5;
+}
+.nav_notification:hover{
+    transform: rotate(7deg);
 }
 .nav_profile{
     border-radius: 50%;
