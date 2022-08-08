@@ -1,39 +1,62 @@
 .banner{
     color: #fff;
     object-fit: contain;
-    height: 448px; /*Modificar esto para obtener una full screen*/
+    height: 100vh; /*Modificar esto para obtener una full screen*/
 }
 .banner_contents{
-    margin-left: 30px;
-    padding-top: 140px;
+    padding-left: 150px;
+    padding-top: 500px;
     height: 190px;
+}
+.banner_original_thin{
+    font-weight: 200;
+    font-size: 20px;
+    letter-spacing: 4px;
+}
+.banner_original_bold{
+    font-weight: 700;
 }
 .banner_title{
     font-size: 3rem;
     font-weight: 800;
-    padding: 0.3rem;
     text-transform: uppercase;
+    color: #64EEBC;
+    font-weight: 700;
+    font-size: 120px;
+    letter-spacing: 16px;
+    
 }
 
 
 /*estilo de los botones, modificar estilos, ambos botones son diferentes*/
 .banner_button{
+    width: 248px;
+    height: 56px;
     cursor: pointer;
     color: #fff;
     outline: none;
     border: none;
-    font-weight: 700;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 4px;
     border-radius: 0.2vw;
     padding-left: 2rem;
     padding-right: 2rem;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     margin-right: 1rem;
-    background-color: rgba(51,51,51,0.5);
+    background-color: #242424;
+    transition: all 0.2s;
 }
 
 .banner_button:hover{
     color: #000;
-    background-color: #e6e6e6;
+    background-color: #64EEBC;
     transition: all 0.2s;
+}
+
+.banner_button_lista{
+    /* background-color:  #24242480;*/
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.5);
 }

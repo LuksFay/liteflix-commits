@@ -3,6 +3,8 @@ import axios from './axios';
 import requests from './request';
 import './Banner.css';
 
+
+const base_url = "https://image.tmdb.org/t/p/original"
 const Banner = () => {
   const [movie, setMovie]=useState([]);
   
@@ -18,19 +20,18 @@ const Banner = () => {
     }
     fetchData();
   },[]);
-  console.log(movie);
   return (
     <>
     <header className='banner'
       style={{
         backgroundSize:"cover",
-        backgroundImage:`url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundImage:`url("${base_url}${movie?.backdrop_path}")`,
         backgroundPosition: "center center",
       }}
     > {/* imagen de fondo */}
       <div className='banner_contents'>
         <div> {/* titulo */}
-          <p>ORIGINAL DE <span>LITEFLIX</span></p>
+          <p className='banner_original_thin'>ORIGINAL DE <span className='banner_original_bold'>LITEFLIX</span></p>
           <h1 className='banner_title'>
           {movie?.title || movie?.name || movie.original_name}
           </h1>
@@ -39,7 +40,7 @@ const Banner = () => {
         
         <div className='banner_buttons'> {/* botones */}
           <button className='banner_button'>REPRODUCIR</button>
-          <button className='banner_button'>MI LISTA</button>
+          <button className='banner_button banner_button_lista'>MI LISTA</button>
         </div>
       </div>
     </header>

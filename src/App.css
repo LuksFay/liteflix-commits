@@ -1,8 +1,10 @@
 *{
   margin: 0;
+  font-family: 'Oswald', sans-serif;
 }
 
 .app{
   background-color: #242424;
   height: 100vh;
+  position: relative;
 }
