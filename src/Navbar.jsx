@@ -14,6 +14,7 @@ const Navbar = () => {
       window.removeEventListener('scroll', null);
     };
   }, []);
+
   return (
     <nav className={`nav ${show && "nav_black"}`} id='nav'>
 

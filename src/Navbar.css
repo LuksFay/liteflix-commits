@@ -81,7 +81,7 @@
     display: grid;
     padding-left: 5%;
     align-content: center;
-    background-color: #fff;
+    background-color: #111;
     gap: 2em;
     
 
@@ -91,7 +91,7 @@
 .nav_item{
     list-style: none;
     font-size: 22px;
-    color: #111;
+    color: #fff;
     letter-spacing: 4px;
     cursor: pointer;
     text-transform: uppercase;

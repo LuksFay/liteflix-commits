@@ -3,7 +3,7 @@ import axios from './axios';
 import './Column.css'
 
 const base_url = "https://image.tmdb.org/t/p/original"
-const Column = ({title, fetchUrl}) => {
+const Column = ({fetchUrl}) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(()=>{
