@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({setModalOpen, modalOpen}) => {
   const [show, handleShow] = useState(false);
 
   useEffect(()=>{
@@ -20,7 +20,7 @@ const Navbar = () => {
 
       <div className='nav_left_container'>
         <p className='nav_logo_bold'>Lite<span className='nav_logo_light'>flix</span></p>
-        <button className='nav_button'>
+        <button className='nav_button' onClick={()=>setModalOpen(!modalOpen)}>
          Agregar Pelicula
         </button>
       </div>
@@ -36,7 +36,7 @@ const Navbar = () => {
           <li className='nav_item'>Populares</li>
           <li className='nav_item'>Mis películas</li>
           <li className='nav_item'>Mi lista</li>
-          <li className='nav_item agregar'>Agregar película</li>
+          <li className='nav_item agregar' onClick={()=>setModalOpen(!modalOpen)}>Agregar película</li>
           <li className='nav_item'>Cerrar sesión</li>
         </ul>
         <a href="#nav" className='nav_hamburguer'>
