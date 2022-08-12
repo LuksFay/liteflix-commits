@@ -1,7 +1,7 @@
 .banner{
     color: #fff;
     object-fit: contain;
-    height: 100vh; /*Modificar esto para obtener una full screen*/
+    height: 100vh; 
     position: relative;
 }
 .banner_contents{
@@ -10,7 +10,7 @@
     flex-direction: column;
     position: absolute;
     top: 40%;
-    width: 70%;
+    width: 68%;
 }
 .banner_original_thin{
     font-weight: 200;
@@ -65,10 +65,10 @@
 
 .movie_list{
     position: absolute;
-    top: 15%;
-    right: 0;
-    bottom: 0;
-    margin-right: 50px;
+    top: -200px;
+    right: -25%;
+    margin-right: 80px; 
+    z-index: 1;
 }
 .movie_list span{
     padding: 10px;
@@ -99,4 +99,59 @@
     outline-offset: none;
     outline-style: none;
     outline: none;
+}
+
+.banner--fadeBottom{
+    position:absolute;
+    bottom:-3px;
+    width:100%;
+    height:20vh;
+    background: -moz-linear-gradient(top,  #89fff100 0%, #242424 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#89fff100), color-stop(100%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #89fff100 0%,#242424 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #89fff100 0%,#242424 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #89fff100 0%,#242424 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #89fff100 0%,#242424 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0089fff1', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
+@media (max-width: 1065px){
+
+    .banner{
+        background-position: center;
+        background-size: contain;
+        background-size: 0%;
+    }
+
+    .banner_contents{
+        display: flex;
+        flex-direction: column;
+        top: 60%;
+        padding-left: 15%;
+        z-index: 1;
+    }
+   
+    .movie_list{
+        position: initial;
+        bottom: 0;
+        right: 0;
+        text-align: center;
+        margin-right: 0;
+        z-index: 1;
+    }
+    .banner_title_div{
+        text-align: center;
+    }
+    .banner_buttons{
+        text-align: center;
+    }
+    .banner_button{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .banner_title{
+        font-size: 5rem;
+        line-height: 90px;
+        letter-spacing: 2px;
+    }
 }

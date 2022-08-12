@@ -4,12 +4,21 @@ import axios from './axios';
 import requests from './request';
 import request from './request';
 import './Banner.css';
+import MyColumn from './MyColumn';
 
 
-const base_url = "https://image.tmdb.org/t/p/original"
+const base_url = "https://image.tmdb.org/t/p/original/"
 const Banner = () => {
   const [movie, setMovie]=useState([]);
+  const [category, setCategory] = useState("POPULARES")
+  const [populares, setPopulares] = useState(true)
+  const [misPeliculas, setMisPeliculas] = useState(false)
   
+  useEffect(()=>{
+      category === "POPULARES" ? setPopulares(true) : setPopulares(false);
+      category === "MIS PELICULAS" ? setMisPeliculas(true) : setMisPeliculas(false);
+    }, [category])
+    
   useEffect(()=>{
     async function fetchData(){
       const request = await axios.get(requests.peliculaDestacada)
@@ -22,23 +31,10 @@ const Banner = () => {
     }
     fetchData();
   },[]);
-  const [category, setCategory] = useState("POPULARES")
-  const [populares, setPopulares] = useState(true)
-  const [misPeliculas, setMisPeliculas] = useState(false)
-  
-  useEffect(()=>{
-      category === "POPULARES" ? setPopulares(true) : setPopulares(false);
-      category === "MIS PELICULAS" ? setMisPeliculas(true) : setMisPeliculas(false);
-    }, [category])
   
   const handleOnChange = (e) => {
     setCategory(e.target.value);
   };
-
-  //const truncate = (str, n) =>{
- //   return str?.length > n ? str.substr(0, n-1) + "..." : str;
- //word-wrap: break-word;
-  //}
 
   return (
     <>
@@ -48,22 +44,21 @@ const Banner = () => {
         backgroundImage:`url("${base_url}${movie?.backdrop_path}")`,
         backgroundPosition: "center center",
       }}
-    > {/* imagen de fondo */}
+    > 
       <div className='banner_contents'>
-        <div> {/* titulo */}
+        <div className='banner_title_div'> 
           <p className='banner_original_thin'>ORIGINAL DE <span className='banner_original_bold'>LITEFLIX</span></p>
           <h1 className='banner_title'>
-          {/*truncate(movie?.title,16) || truncate(movie?.name,16) || truncate(movie?.original_name,16)*/}
+          
           {movie?.title || movie?.name || movie.original_name}
           </h1>
         </div>
         
-        <div className='banner_buttons'> {/* botones */}
+        <div className='banner_buttons'> 
           <button className='banner_button'>REPRODUCIR</button>
           <button className='banner_button banner_button_lista'>MI LISTA</button>
         </div>
-      </div>
-
+      
       <div className='movie_list'>
         <span>ver:</span>
         <select onChange={handleOnChange}>
@@ -71,13 +66,16 @@ const Banner = () => {
           <option>MIS PELICULAS</option>
         </select>
         {populares && <Column fetchUrl={request.populares}/>}
-        {misPeliculas && <Column fetchUrl={request.misPeliculas}/>}
+        {misPeliculas && <MyColumn />}
+      </div>
+      
       </div>
 
+      
     </header>
+    <div className='banner--fadeBottom' />
     </>
   )
 }
 
 export default Banner
-

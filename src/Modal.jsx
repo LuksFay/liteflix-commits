@@ -11,7 +11,6 @@ const Modal = ({modalOpen, setModalOpen}) => {
                 <div className='modalHeader'>
                     <h4>Agregar Película</h4>
                 </div>
-
                 <button className='closeButton' onClick={()=>setModalOpen(!modalOpen)}>
                     <img src={require('./assets/menu_close.png')} alt="close"/>
                 </button>    

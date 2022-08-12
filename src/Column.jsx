@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from './axios';
 import './Column.css'
 
-const base_url = "https://image.tmdb.org/t/p/original"
+const base_url = "https://image.tmdb.org/t/p/original/"
 const Column = ({fetchUrl}) => {
     const [movies, setMovies] = useState([]);
 

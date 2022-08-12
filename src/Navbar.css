@@ -81,7 +81,7 @@
     display: grid;
     padding-left: 5%;
     align-content: center;
-    background-color: #111;
+    background-color: #242424;
     gap: 2em;
     
 
@@ -138,3 +138,21 @@
     border-radius: 50%;
     z-index: 5;
 }
+
+@media (max-width: 768px){
+    .nav_notification, .nav_button{
+        display: none;
+    }
+    .nav_left_container{
+        width: 100%;
+        margin: 0;
+        justify-content: center;
+        margin-right: 70px;
+    }
+    .nav_right_container {
+        position: absolute;
+        padding: 7px;
+        justify-content: space-between;
+        width: 85vw;
+    }
+    }
