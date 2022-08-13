@@ -45,17 +45,7 @@
     
 }
 
-/*NAVBAR LOGO*/
-.nav_logo_light{
-    font-weight: 200;
-}
-.nav_logo_bold{
-    font-size: 34px;
-    font-weight: 400;
-    color: #64EEBC;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-}
+
 
 /*NAVBAR MENU*/
 .nav_hamburguer{
@@ -147,7 +137,7 @@
         width: 100%;
         margin: 0;
         justify-content: center;
-        margin-right: 70px;
+        margin-right: 35px;
     }
     .nav_right_container {
         position: absolute;
@@ -156,3 +146,12 @@
         width: 85vw;
     }
     }
+@media (max-width: 376px){
+    .nav_links{
+        padding-top: 40px;
+    }
+    .agregar{
+        margin: 0;
+    }
+
+}

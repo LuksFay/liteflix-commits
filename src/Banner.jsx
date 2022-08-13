@@ -49,8 +49,8 @@ const Banner = () => {
         <div className='banner_title_div'> 
           <p className='banner_original_thin'>ORIGINAL DE <span className='banner_original_bold'>LITEFLIX</span></p>
           <h1 className='banner_title'>
-          
-          {movie?.title || movie?.name || movie.original_name}
+            {movie?.title}
+         {/*movie?.title || movie?.name || movie.original_name*/}
           </h1>
         </div>
         

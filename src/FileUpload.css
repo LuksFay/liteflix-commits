@@ -58,3 +58,16 @@
     background-color: #64EEBC;
     color: #fff;
 }
+
+
+.text{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+}
+.congrats{
+    font-weight: 700;
+}
+.congratsInfo{
+    font-weight: 200;
+}

@@ -150,8 +150,13 @@
         margin-bottom: 10px;
     }
     .banner_title{
-        font-size: 5rem;
+        font-size: 3rem;
         line-height: 90px;
         letter-spacing: 2px;
+    }
+}
+@media (max-width: 481px){
+    .banner_contents{
+        top: 40%;
     }
 }
