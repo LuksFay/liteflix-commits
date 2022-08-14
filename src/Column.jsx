@@ -6,6 +6,14 @@ const base_url = "https://image.tmdb.org/t/p/original/"
 const Column = ({fetchUrl}) => {
     const [movies, setMovies] = useState([]);
 
+    const truncate = (str, n) =>{
+        return str?.length > n ? str.substr(0, n-1) + "..." : str;
+    }
+    const truncateDate = (str, n) =>{
+        return str?.length > n ? str.substr(0, n-1) : str;
+    }
+    
+
     useEffect(()=>{
         async function fetchData(){
             const request = await axios.get(fetchUrl);
@@ -21,7 +29,18 @@ const Column = ({fetchUrl}) => {
             {movies.map((movie) =>(
                 <div className='poster_container' key={movie.id}>
                     <div className='column_poster_info'>
-                        <p className='column_poster_name'>{movie.title}</p>
+                        <p className='column_poster_name'>
+                            {/*movie.title*/}
+                            {truncate(movie?.title,20)}
+                        </p>
+                        <div className='column_poster_movie_info'>
+                            <p 
+                            className='column_poster_movie_info_text'
+                            >{movie.vote_average.toString().replace('.', ',')}</p>
+                            <p
+                            className='column_poster_movie_info_text'
+                            >{truncateDate(movie?.release_date,5)}</p>
+                        </div>
                     </div> 
                     <img
                         className='column_poster'

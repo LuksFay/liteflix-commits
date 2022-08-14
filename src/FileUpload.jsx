@@ -17,39 +17,18 @@ const FileUpload = ({setFormComplete}) => {
 
     // FUNCION CARGAR IMAGEN
     const handleImage = (files) => {
-
-        const fileReader = new FileReader();
-
-
-        {/*fileReader.onerror = () => {
-          setError(true);
-        };
-    
-        fileReader.onloadstart = (data) => {
-          if (fileReader.readyState === 1) {
-           // let valueProgress = parseInt(data.loaded);
-           // setProgress(valueProgress);
-          }
-        };
-    
-        fileReader.onprogress = (data) => {
-          if (fileReader.readyState === 1) {
-            //let valueProgress = parseInt((data.loaded / data.total) * 50, 10);
-            //setProgress(valueProgress);
-          }
-        };*/}
-
-
-        fileReader.onloadend = () => {
-          if (fileReader.readyState === 2) {
-            setForm({ ...form, backdrop_path: fileReader.result });
-          }
-        };
-
+        console.log(files)
+          const fileReader = new FileReader();
+          fileReader.onloadend = () => {
+            if (fileReader.readyState === 2) {
+              setForm({ ...form, backdrop_path: fileReader.result });
+             
+            }
+          };
         fileReader.readAsDataURL(files);
         setImage(true)
         return image
-};
+    };
 
 
     //FUNCION CARGAR EL FORMULARIO 
@@ -57,31 +36,45 @@ const FileUpload = ({setFormComplete}) => {
     const onSubmit = (e) => {
         e.preventDefault();
         const { title, backdrop_path } = form;
-    
         if (title === '' || backdrop_path === '') return;
-    
         const movie = {
           title,
           backdrop_path,
         };
-    
         localStorage.setItem('MyUploadedMovies', JSON.stringify(movie));
         setFormComplete(true)
       };
 
-
-
-
       //FUNCION REACT ONDROP
     const handleDragOver = (event) => {
+      console.log("File(s) in drop zone")
       event.preventDefault()
     }
 
-    const handleDrag = (evt) => {
-      console.log(evt.currentTarget.id)
+     
+    const handleDrag = (event) => {
+      console.log(event.currentTarget.id)
+      event.preventDefault()
     }
 
-
+    const handleDrop = (ev) => {
+      ev.preventDefault();
+      if (ev.dataTransfer.items) {
+        // DataTransferItemList accede a los archivos
+        for (let i = 0; i < ev.dataTransfer.items.length; i++) {
+          // Si los elementos descartados no son archivos, rechazados!
+          if (ev.dataTransfer.items[i].kind === 'file') {
+            const file = ev.dataTransfer.items[i].getAsFile();
+            handleImage(file)
+          }
+        }
+      } else {
+        // DataTransferItemList accede a los archivos
+        for (let i = 0; i < ev.dataTransfer.files.length; i++) {
+          handleImage(ev.dataTransfer.files[i])
+        }
+      }
+    }
   return (
     <>
       <div className='fileContainer'>
@@ -91,10 +84,9 @@ const FileUpload = ({setFormComplete}) => {
               
               :
           <div className='fileImgContainer'
-            draggable={true}
             onDragOver={handleDragOver}
             onDragStart={handleDrag}
-            onDrop={(e) => handleImage(e.target.files[0])}
+            onDrop={handleDrop}
           >
             <label htmlFor="imgfiles" className='fileImgLabel'>
              Agregá un archivo o arrastralo y soltalo aquí
