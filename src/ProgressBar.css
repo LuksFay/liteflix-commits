@@ -8,13 +8,41 @@
     background-color:  #ffffff80;
     position: relative;
 }
+
+.errorProgress{
+    position: absolute;
+    height: 10px;
+    bottom: -3px;
+    background-color: #FF0000;
+    animation: progress-animation 1s forwards;
+}
+
 .progress{
     position: absolute;
     height: 10px;
     bottom: -3px;
     background-color: #64EEBC;
-    animation: progress-animation 7s forwards;
+    animation: progress-animation 5s forwards;
 }
+.progressText{
+    color: #fff;
+}
+.progressButtonsDiv{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px;
+}
+.progressButtons{
+    border: none;
+    background: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.progressButtons:hover{
+    color: #64EEBC;
+}
+
 
 @keyframes progress-animation {
     0% { width: 0%;}

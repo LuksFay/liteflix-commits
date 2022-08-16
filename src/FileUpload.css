@@ -27,6 +27,7 @@
     justify-content: center;
     padding: 20px 10px;
     border: dashed 1px;
+    text-align: center;
 }
 
 /*TITULO*/
@@ -53,6 +54,8 @@
     border-radius: 0;
     width: 50%;
     text-transform: uppercase;
+    display: flex;
+    justify-content: center;
 }
 .fileImgButton:hover{
     background-color: #64EEBC;
@@ -71,3 +74,15 @@
 .congratsInfo{
     font-weight: 200;
 }
+
+.formClass{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#frm:invalid #btns {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: gray;
+  }

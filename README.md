@@ -1,3 +1,10 @@
-# Liteflix
+# Liteflix Challenge
 
-Prueba técnica para Litebox. Fecha limite de entrega 16/8
+## Fecha de entrega 16/08/2022
+
+Creada usando ReactJs, CSS y Axios.
+
+## Dispositivos
+
+- Desktop
+- Mobile

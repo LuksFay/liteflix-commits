@@ -7,7 +7,7 @@ const Column = ({fetchUrl}) => {
     const [movies, setMovies] = useState([]);
 
     const truncate = (str, n) =>{
-        return str?.length > n ? str.substr(0, n-1) + "..." : str;
+        return str?.length > n ? str.substr(0, n-1) : str;
     }
     const truncateDate = (str, n) =>{
         return str?.length > n ? str.substr(0, n-1) : str;
@@ -29,25 +29,33 @@ const Column = ({fetchUrl}) => {
             {movies.map((movie) =>(
                 <div className='poster_container' key={movie.id}>
                     <div className='column_poster_info'>
-                        <p className='column_poster_name'>
-                            {/*movie.title*/}
-                            {truncate(movie?.title,20)}
-                        </p>
+                        <div className='play_icon_circle'>
+                            <img src={require('./assets/play.png')} className='play_icon_white play_icon_size' alt='play'/>
+                            <img src={require('./assets/play_black.png')} className='play_icon_black play_icon_size' alt='play'/>
+                        </div>
+                            <p className='column_poster_name'>
+                                {/*movie.title*/}
+                                {truncate(movie?.title,19)}
+                            </p>
                         <div className='column_poster_movie_info'>
-                            <p 
-                            className='column_poster_movie_info_text'
-                            >{movie.vote_average.toString().replace('.', ',')}</p>
+                            <div className='score'>
+                                <img src={require('./assets/star.png')} className="column_poster_movie_info_text star" alt="star" />
+                                <p 
+                                className='column_poster_movie_info_text'
+                                >{movie.vote_average.toString().replace('.', ',')}</p>    
+                            </div>
                             <p
-                            className='column_poster_movie_info_text'
-                            >{truncateDate(movie?.release_date,5)}</p>
+                            className='column_poster_movie_info_text'>
+                                {truncateDate(movie?.release_date,5)}
+                            </p>
                         </div>
                     </div> 
                     <img
                         className='column_poster'
-                        src={`${base_url}${movie.backdrop_path}`}
-                        alt={movie.title}
+                        src={`${base_url}${movie?.backdrop_path}`}
+                        alt={movie.title} 
                     /> 
-                    <div className='poster--fadeBottom' />  
+                    <div className='poster--fadeBottom' />
                 </div>
             ))}
         </div>

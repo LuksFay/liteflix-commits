@@ -4,15 +4,21 @@ import Navbar from './Navbar';
 import Banner from './Banner';
 import Modal from './Modal';
 function App() {
-  const [modalOpen, setModalOpen] = useState(false);  
+  const [modalOpen, setModalOpen] = useState(false);
+
+  
   return (
     <>
     <div className='app'>
-      <Navbar modalOpen={modalOpen} setModalOpen={setModalOpen}/>
-      <Banner />
+      <Navbar 
+        modalOpen={modalOpen} 
+        setModalOpen={setModalOpen}
+      />
+      <Banner   
+      />
       <Modal
-       modalOpen={modalOpen}
-       setModalOpen={setModalOpen}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
        />
     </div>
     </>

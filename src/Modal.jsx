@@ -6,11 +6,12 @@ import './Modal.css';
 const Modal = ({modalOpen, setModalOpen}) => {
 
     const [formComplete, setFormComplete] = useState(false)
-    
+
+        
   return (
     <>
     {modalOpen && 
-        <div className='overlay'>
+        <div className='overlay'> 
             <div className='modalContainer'>
                 <div className='modalHeader'>
                 {formComplete ?  <h4 className='nav_logo_bold'>Lite<span className='nav_logo_light'>flix</span></h4>  :   <h4>Agregar Película</h4>  }
@@ -19,7 +20,12 @@ const Modal = ({modalOpen, setModalOpen}) => {
                 <button className='closeButton' onClick={()=>setModalOpen(!modalOpen)}>
                     <img src={require('./assets/menu_close.png')} alt="close"/>
                 </button>
-                {formComplete ?  <FileUploaded/>  :   <FileUpload setFormComplete={setFormComplete}/>  }            
+                { formComplete ?  
+                    <FileUploaded setModalOpen={setModalOpen} modalOpen={modalOpen} setFormComplete={setFormComplete}/>  :  
+                    <FileUpload 
+                        setFormComplete={setFormComplete} 
+                          
+                    />  }            
             </div>
         </div>
     }

@@ -6,9 +6,8 @@ import request from './request';
 import './Banner.css';
 import MyColumn from './MyColumn';
 
-
-const base_url = "https://image.tmdb.org/t/p/original/"
 const Banner = () => {
+  
   const [movie, setMovie]=useState([]);
   const [category, setCategory] = useState("POPULARES")
   const [populares, setPopulares] = useState(true)
@@ -35,9 +34,10 @@ const Banner = () => {
   const handleOnChange = (e) => {
     setCategory(e.target.value);
   };
-
+  const base_url = "https://image.tmdb.org/t/p/original/"
   return (
     <>
+    
     <header className='banner'
       style={{
         backgroundSize:"cover",
@@ -66,7 +66,7 @@ const Banner = () => {
           <option>MIS PELICULAS</option>
         </select>
         {populares && <Column fetchUrl={request.populares}/>}
-        {misPeliculas && <MyColumn />}
+        {misPeliculas && <MyColumn/>}
       </div>
       
       </div>
@@ -74,6 +74,7 @@ const Banner = () => {
       
     </header>
     <div className='banner--fadeBottom' />
+  
     </>
   )
 }

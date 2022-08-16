@@ -42,7 +42,7 @@ const Navbar = ({setModalOpen, modalOpen}) => {
         <a href="#nav" className='nav_hamburguer'>
           <img src={require('./assets/menu.png')} className='nav_menu icon_size' alt='menu'/>
         </a>
-        <a href="#" className='nav_close'>
+        <a href="#nowhere" className='nav_close'>
           <img src={require('./assets/menu_close.png')} className='nav_menu_close icon_size' alt='menu' />
         </a>
       </div>
@@ -51,7 +51,7 @@ const Navbar = ({setModalOpen, modalOpen}) => {
     </div>
 
     </nav>
-  ) 
+  )
 }
 
 export default Navbar
